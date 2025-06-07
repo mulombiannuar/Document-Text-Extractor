@@ -1,5 +1,4 @@
-from PyPDF2 import PdfReader
-import pdfplumber # best for scanned pdfs
+import pdfplumber # extracts texts from text-based pdfs
 from pdf2image import convert_from_path
 import pytesseract
 import cv2
@@ -64,7 +63,7 @@ def is_scanned_pdf(pdf_path: str) -> bool:
         return True
     except Exception as e:
         print(f"[ERROR] Failed to check PDF type: {e}")
-        return True  # Assume scanned if check fails
+        return True  # assume scanned if check fails
 
 
 
