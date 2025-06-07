@@ -1,0 +1,70 @@
+{% extends "layouts/base.html" %} {% block title %}Document Text Extractor{%
+endblock %} {% block content %}
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 page-header">
+        <h2 class="page-title mb-1">Document Text Extractor</h2>
+        <p>
+          This Flask app extracts and formats clean text from scanned or
+          standard PDF documents uploaded by users.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-primary">
+          <div class="card-header bg-success text-white fw-bold">
+            <i class="fas fa-file-upload me-2"></i> Upload Your PDF
+          </div>
+          <div class="card-body">
+            <form
+              action="#"
+              method="POST"
+              id="upload-form"
+              enctype="multipart/form-data"
+              autocomplete="off"
+            >
+              {{ form.hidden_tag() }}
+              <div class="container">
+                <div class="row">
+                  <!-- PDF File Upload -->
+                  <div class="col-md-6 col-sm-12 mb-3">
+                    <label for="pdf_file" class="form-label"
+                      >Upload PDF File</label
+                    >
+                    <input
+                      type="file"
+                      name="pdf_file"
+                      class="form-control {% if form.pdf_file.errors %}is-invalid{% endif %}"
+                      accept=".pdf"
+                      required
+                    />
+                    {% for error in form.pdf_file.errors %}
+                    <div class="invalid-feedback">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+                </div>
+
+                <div class="text-start">
+                  <button
+                    type="submit"
+                    id="upload-button"
+                    class="btn btn-success"
+                  >
+                    <i class="fas fa-upload me-2"></i> Extract Text
+                  </button>
+                </div>
+
+                <div id="extraction-result" class="mt-3">
+                  <!-- Extraction result will be displayed here -->
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
