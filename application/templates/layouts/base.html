@@ -83,15 +83,15 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script>
       $(document).ready(function () {
-        $("#predict-form").on("submit", function (e) {
+        $("#upload-form").on("submit", function (e) {
           e.preventDefault();
 
-          const form = $("#predict-form");
-          const button = $("#predict-button");
+          const form = $("#upload-form");
+          const button = $("#upload-button");
           const formData = new FormData(form[0]);
 
           $.ajax({
-            url: "{{ url_for('home.predict_outcome') }}",
+            url: "{{ url_for('home.upload_pdf') }}",
             method: "POST",
             data: formData,
             processData: false,
@@ -108,31 +108,31 @@
             },
             success: function (response) {
               console.log(response);
-              if (response.success && response.prediction) {
-                $("#prediction-result").html(`
+              if (response.success && response.extracted_text) {
+                $("#extraction-result").html(`
                   <div class="alert alert-success" role="alert">
-                    ${response.prediction}
+                    ${response.extracted_text}
                   </div>
                 `);
               } else {
-                $("#prediction-result").html(`
+                $("#extraction-result").html(`
                   <div class="alert alert-danger" role="alert">
-                    Prediction failed. Please try again.
+                    PDF Text extraction failed. Please try again.
                   </div>
                 `);
               }
               button.prop("disabled", false);
-              button.html("Predict Outcome Now");
+              button.html("Extract Text");
             },
             error: function (xhr) {
               console.log("Error response:", xhr);
-              $("#prediction-result").html(`
+              $("#extraction-result").html(`
                 <div class="alert alert-danger" role="alert">
                    Something has gone wrong. Please try again.
                 </div>
               `);
               button.prop("disabled", false);
-              button.html("Predict Outcome Now");
+              button.html("Extract Text");
             },
           });
         });
