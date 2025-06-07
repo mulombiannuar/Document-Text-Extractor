@@ -10,7 +10,6 @@
 - 🧠 ML-based OCR for accurate text recognition from images
 - 🧹 Text cleaning and formatting
 - 🗃 Simple web interface for uploading files
-- ⚡ REST API for integration
 
 ---
 
@@ -18,10 +17,13 @@
 
 - **Python 3.8+**
 - **Flask** (Web Framework)
-- **Tesseract OCR** (for scanned PDFs)
-- **PyMuPDF** / **pdfminer.six** (for native PDF text extraction)
-- **Pillow / OpenCV** (for image processing)
-- **scikit-learn / NLTK** (optional for text cleaning, NLP tasks)
+- **pdfplumber** (for text-based PDF text extraction)
+- **pdf2image** (for converting PDF pages to images)
+- **Tesseract OCR** (for scanned PDFs via pytesseract)
+- **Pillow / OpenCV** (for image processing and OCR preprocessing)
+- **NumPy** (for handling image arrays)
+- **python-dotenv** (for managing environment variables)
+- **scikit-learn / NLTK / spaCy** (optional for text cleaning, NLP tasks)
 
 ---
 
@@ -30,5 +32,19 @@
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/yourusername/document-text-extractor.git
+git clone https://github.com/mulombiannuar/Document-Text-Extractor.git
 cd document-text-extractor
+```
+
+---
+## 📱 Follow Me
+
+Stay connected and follow me on my social media networks:
+
+- **Website**: [mulan.co.ke](https://mulan.co.ke/)
+- **Facebook**: [Mulan Technologies](https://www.facebook.com/mulantech)
+- **Twitter**: [@mulantech](https://twitter.com/mulantech)
+- **YouTube**: [Mulan Technologies Channel](https://www.youtube.com/channel/UCp0mCqz5l4HsUk3OEwm4S4Q)
+- **LinkedIn**: [Anuary Mulombi](https://www.linkedin.com/in/mulombiannuar/)
+- **GitHub**: [mulombiannuar](https://github.com/mulombiannuar)
+
